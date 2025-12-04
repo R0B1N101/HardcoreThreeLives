@@ -10,7 +10,7 @@
     <artifactId>hardcorethreelives</artifactId>
 
     <!-- >>> HIER pas je later je plugin versie aan <<< -->
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 
     <name>HardcoreThreeLives</name>
     <description>Hardcore plugin met levens en tempban bij death.</description>

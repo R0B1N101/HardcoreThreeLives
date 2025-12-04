@@ -16,7 +16,6 @@ public class HardcoreCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        // Alleen operators
         if (!sender.isOp()) {
             sender.sendMessage(ChatColor.RED + "Je moet operator zijn om dit command te gebruiken.");
             return true;
@@ -30,7 +29,6 @@ public class HardcoreCommand implements CommandExecutor {
         if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
             long start = System.currentTimeMillis();
 
-            // Config herladen
             plugin.reloadConfig();
 
             long took = System.currentTimeMillis() - start;

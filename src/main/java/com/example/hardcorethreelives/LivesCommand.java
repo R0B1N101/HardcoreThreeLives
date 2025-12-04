@@ -15,6 +15,7 @@ public class LivesCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+
         if (!(sender instanceof Player)) {
             sender.sendMessage("Dit command kan alleen in-game gebruikt worden.");
             return true;
@@ -22,12 +23,12 @@ public class LivesCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        int deaths = plugin.getDeaths(player.getUniqueId());
+        int deaths = plugin.getDataManager().getDeaths(player.getUniqueId());
         int maxLives = plugin.getConfig().getInt("lives.maxLives", 3);
-
         int livesLeft = Math.max(0, maxLives - deaths);
 
         player.sendMessage("§6===== §eHardcore Levens §6=====");
+        player.sendMessage("§fNaam: §e" + player.getName());
         player.sendMessage("§fDeaths: §e" + deaths);
         player.sendMessage("§fMax levens: §e" + maxLives);
 

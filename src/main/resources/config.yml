@@ -1,37 +1,29 @@
-# === HardcoreThreeLives Config ===
-
 lives:
-  # Hoeveel levens heeft elke speler voordat er bans komen?
+  # Hoeveel levens een speler in totaal krijgt
   maxLives: 3
 
 ban:
-  # Basis bantijd (in minuten) bij de EERSTE ban-death.
+  # Minuten ban bij de eerste keer dood zonder levens
   baseMinutes: 60
 
-  # Extra minuten bantijd per extra death NA de eerste ban-death.
-  # Voorbeeld:
-  # - 1e ban-death: baseMinutes
-  # - 2e ban-death: baseMinutes + extraMinutesPerDeath
-  # - 3e ban-death: baseMinutes + 2 * extraMinutesPerDeath
+  # Extra minuten ban per volgende dood nadat levens op zijn
+  # 0 = altijd 60 min, 5 = 60, 65, 70, 75...
   extraMinutesPerDeath: 0
 
 formatting:
-  # Datum/tijd op het kickscherm.
-  # Voorbeelden:
-  # "EEEE d MMMM yyyy 'om' HH:mm 'uur'" -> donderdag 4 december 2025 om 04:09 uur
-  # "d-M-yyyy HH:mm"                    -> 4-12-2025 04:09
+  # Hoe datum/tijd wordt weergegeven in Nederlandse stijl
+  # Voorbeeld: "donderdag 4 december 2025 om 04:09 uur"
   dateTime: "EEEE d MMMM yyyy 'om' HH:mm 'uur'"
 
 messages:
-  # Wanneer je nog levens over hebt
+  # Je gaat dood maar hebt nog levens
   deathStillLives: "&cJe bent doodgegaan! Je hebt nog &e{remaining} &ckansen over."
 
-  # Wanneer je op 0 levens staat (volgende death is ban)
+  # Geen levens meer → waarschuwing dat de volgende dood ban is
   deathNoLivesLeft: "&cJe hebt al je &e{maxLives} &ckansen verbruikt! Volgende death is een &4ban&c."
 
-  # Kick message als je daadwerkelijk geband wordt.
-  # {time} wordt vervangen door de datum/tijd volgens formatting.dateTime
+  # Kick message bij ban
   deathBannedKick: "&cJe bent doodgegaan zonder levens!\n&fVerbannen tot:\n&e{time}"
 
-  # Reden die in de banlist wordt gezet
+  # Reden zichtbaar in banlist
   banReason: "Geen levens meer in hardcore!"

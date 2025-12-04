@@ -28,7 +28,7 @@ public class DeathListener implements Listener {
         Player player = event.getEntity();
 
         // Tel death en sla op in data.yml
-        int deaths = plugin.addDeath(player.getUniqueId());
+        int deaths = plugin.getDataManager().addDeath(player.getUniqueId());
 
         FileConfiguration config = plugin.getConfig();
 
