@@ -1,0 +1,19 @@
+# Maven build output
+/target/
+
+# Compiled classes and jars
+*.jar
+*.class
+
+# VS Code
+.vscode/
+
+# IntelliJ / Eclipse / Other IDE junk
+.idea/
+*.iml
+*.classpath
+*.project
+
+# OS garbage
+.DS_Store
+Thumbs.db
