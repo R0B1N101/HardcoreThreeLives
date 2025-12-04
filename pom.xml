@@ -5,22 +5,25 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Pakketnaam + plugin-naam -->
+    <!-- Basis info -->
     <groupId>com.example</groupId>
-    <artifactId>HardcoreThreeLives</artifactId>
+    <artifactId>hardcorethreelives</artifactId>
+
+    <!-- >>> HIER pas je later je plugin versie aan <<< -->
     <version>1.0.0</version>
+
     <name>HardcoreThreeLives</name>
-    <description>Hardcore met 3 kansen en daarna elke death een tempban.</description>
+    <description>Hardcore plugin met levens en tempban bij death.</description>
     <packaging>jar</packaging>
 
+    <!-- Java / encoding -->
     <properties>
-        <!-- Java versie -->
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!-- Paper repo voor de API -->
+    <!-- Paper API repo -->
     <repositories>
         <repository>
             <id>papermc-repo</id>
@@ -28,8 +31,8 @@
         </repository>
     </repositories>
 
+    <!-- Paper API dependency -->
     <dependencies>
-        <!-- Paper API 1.21.1 (gebruikt ook voor 1.21.10) -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
@@ -39,24 +42,33 @@
     </dependencies>
 
     <build>
+        <!-- Resource filtering zodat ${project.version} in plugin.yml werkt -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
-            <!-- Zorgt ervoor dat plugin.yml en config.yml in je jar komen -->
+            <!-- Compiler: Java 21 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.1</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
                 <configuration>
-                    <encoding>UTF-8</encoding>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
 
-            <!-- Optioneel: nette jar-naam -->
+            <!-- Jar naam: HardcoreThreeLives-v1.0.0.jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
-                    <finalName>HardcoreThreeLives</finalName>
+                    <finalName>HardcoreThreeLives-v${project.version}</finalName>
                 </configuration>
             </plugin>
         </plugins>
