@@ -37,6 +37,7 @@ Een Minecraft (Paper) plugin die hardcore verandert in een levenssysteem:
 
 Standaard `config.yml`:
 
+```yaml
 lives:
   # Hoeveel levens een speler in totaal krijgt
   maxLives: 3
